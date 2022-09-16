@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+<!-- UPLOAD PDF PAGE -->
+{% block head %} {% endblock %} 
+
+{% block body %} 
+
+<!--PDF upload form, Opens file dialog box to select file from users computer-->
+<h1 class="head1" style="text-align: center;" >Upload a PDF file</h1>
+<form id="pdfUpload" method="post" enctype="multipart/form-data">
+    <input type="file" id="file" name="file">
+    <input type=submit class="pageButton" value="Submit">
+</form>
+<h3 class="head1" style="text-align: center;">(After submitting, it will take a few moments, system will notify when done. Please don't do anything.)</h2>
+<br>
+<br>
+<form action="/">
+    <!--Back to main page-->
+    <button class="pageButton2">Back to Main Page</button>
+</form>
+{% endblock %}  

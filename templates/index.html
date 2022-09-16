@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+<!-- MAIN PAGE -->
+{% block head %}
+{% endblock %}
+
+{% block body %}  
+<form id="searchInput" action = "/" method = "POST">
+  <!--Takes input from search bar and sends to functions.py-->
+  <input type="search" id="query" name=searchTerm placeholder="{{flasktext}}"><button class="pageButton">Search</button>
+</form>
+<br>
+<br>
+<form action="upload" method ="GET">
+  <!--Goes to PDF upload-->
+  <button class="pageButton2">Upload PDF File</button>
+</form>
+{% endblock %}

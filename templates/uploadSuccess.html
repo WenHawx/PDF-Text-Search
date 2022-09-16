@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+<!-- PDF UPLOAD SUCCESS PAGE -->
+{% block head %} 
+<style>
+    h1 { text-align: center;}
+    h2 { text-align: center;}
+</style>
+<script src="jquery-2.1.4.js"></script>
+{% endblock %} 
+
+{% block body %} 
+<!--This page loads when PDF has been uploaded and successfully parsed-->
+<h1>{{ filename }}</h1>
+<br>
+<h2>was successfully uploaded and parsed</h2>
+<br>
+<form action="/upload">
+    <!--Back to upload page-->
+    <button class="pageButton2">Back to Upload Page</button>
+</form>
+
+
+<!-- "LOADER"
+<div class="loader-wrapper">
+  <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+<script>
+  $(window).on("load", function(){
+      $(".loader-wrapper").fadeOut("slow")
+  });
+</script>
+-->
+{% endblock %}  

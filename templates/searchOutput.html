@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+<!-- SEARCH RESULTS OUTPUT PAGE -->
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+  <form class="outputDiv" action="/searchOutput" method="POST">
+    <br>
+    <!--Original searched term that was entered on main page after going through search algorithmn-->
+    <h1 class="outputH1">{{ searchTerm }}</h1>
+      <!--lenght_of_list(int), book_list, and page_list(list of lists) are returned here from functions.py-->
+    {% for x in range(length_of_list) %}
+      <!--Each book name is a button to open PDF-->
+      Book: <input type=submit name=pdfName class="pageButton" value="{{book_list[x]}}">
+      <br>
+      Pages: Click on a page number to be taken to that page of the pdf.
+
+      <!-- start a table to hold page number buttons  -->
+    {% set ns = namespace(count = 1) %}
+    <div class="rTable">
+      <div class="rTableRow">
+      {% for key, value in page_list[x].items() -%} 
+      <!--Prints out each key value pair at page_list[x]  key is the page number and value is the hyperlink to open pdf to certain page-->
+        <div class="rTableCell"><button class="pageButton2" onclick="location.href='{{value}}' " type="button">{{key}}</button></div>
+        {% if ns.count is divisibleby 10 %}
+          </div><div class="rTableRow"></div>
+          {% set ns.count = 1 %}
+        {% else %}
+          {% set ns.count = ns.count + 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+      <br>
+      <br>
+    {% endfor %}
+    <br>
+  </form>
+  <form action="/">
+    <button class="pageButton2">Back to Main Page</button>
+  </form>
+{% endblock %}
+
