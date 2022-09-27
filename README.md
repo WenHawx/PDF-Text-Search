@@ -9,3 +9,5 @@ that the term appears on.
 NOTE** Books only appear if they are first uploaded to the application.
 
 Code uses python module pdfminer from https://github.com/euske/pdfminer
+
+This web application is coded in flask.
